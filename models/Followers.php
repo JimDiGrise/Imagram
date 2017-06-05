@@ -22,7 +22,15 @@
 			$followers->FollowerId = $followerId;
 			$followers->save();
 		}
-
+		public function deleteFollower($id) 
+		{
+			Followers::deleteAll(['followerId' => $id]);
+		}
+		public function actionRemove($id) 
+		{
+			Followers::deleteFollower($id);
+			return $this->redirect('/followers/index');
+		}
 
 	}
 	?>

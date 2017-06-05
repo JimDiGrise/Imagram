@@ -26,6 +26,11 @@
 
 			return $this->redirect('/followers/index') ;
 		}
+		public function actionRemove($id) 
+		{
+			Followers::deleteFollower($id);
+			return $this->redirect('/followers/index');
+		}
 	}
 
 	
