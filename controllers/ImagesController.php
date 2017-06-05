@@ -13,7 +13,10 @@
 
 	class ImagesController extends Controller
 	{
-		
+		public function actionView($id) {
+			$photo = Photos::findOneById($id);
+			return $this->render('view', ['photo' => $photo]);
+		}
 		public function actionSucces() {
 			$this->render('success');	
 		}

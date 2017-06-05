@@ -9,6 +9,10 @@
 		{
 			return 'photos';
 		}
+		public function findOneById($id) 
+		{
+			return Photos::findOne($id);
+		}
 		public function findbyUserId($userId) 
 		{
 			return Photos::find()
