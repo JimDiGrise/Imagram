@@ -53,6 +53,16 @@
 			}
 			return $this->render('upload', ['model' => $model]);
 		}
+		public function actionEdit($id) {
+			
+			if(Yii::$app->request->post()) {
+				Photos::updatePhoto($id, 
+									Yii::$app->request->post('Photos')['title'], 
+									Yii::$app->request->post('Photos')['description']);
+				return $this->redirect('/images/view/' . $id);
+			}
+			return $this->render('edit', ['currentPhoto' => Photos::findOneById($id)]);
+		}
 		
 
 	}

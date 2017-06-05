@@ -28,6 +28,13 @@
 			$photos->userId = $userId;
 			$photos->save();	
 		}
+		public function updatePhoto($id, $title, $description) 
+		{
+			$currentPhoto = Photos::findOneById($id);
+			$currentPhoto->title = $title;
+			$currentPhoto->description = $description;
+			$currentPhoto->update();
+		}
 	}
 
 ?>
