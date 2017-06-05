@@ -35,6 +35,11 @@
 			$currentPhoto->description = $description;
 			$currentPhoto->update();
 		}
+		public function deletePhoto($id) 
+		{
+			$currentPhoto = Photos::findOneById($id);
+			$currentPhoto->delete();
+		}
 	}
 
 ?>

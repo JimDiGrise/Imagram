@@ -63,7 +63,10 @@
 			}
 			return $this->render('edit', ['currentPhoto' => Photos::findOneById($id)]);
 		}
-		
+		public function actionRemove($id) {
+			Photos::deletePhoto($id);
+			return $this->redirect('/site/index');
+		}
 
 	}
 ?>
