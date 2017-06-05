@@ -20,6 +20,12 @@
 			$users= Users::findFollowers($followers);
 			return $this->render('search', ['users' => $users->all()]);
 		}
+		public function actionAdd($id) 
+		{
+			Followers::addFollower(Yii::$app->user->identity->id, $id);
+
+			return $this->redirect('/followers/index') ;
+		}
 	}
 
 	

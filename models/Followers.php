@@ -15,7 +15,14 @@
 			
 			return Users::findUsersByFollowers($followers);
 		}
-		
+		public function addFollower($userId, $followerId) 
+		{
+			$followers = new Followers();
+			$followers->UserId = $userId;
+			$followers->FollowerId = $followerId;
+			$followers->save();
+		}
+
 
 	}
 	?>
