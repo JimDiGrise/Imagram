@@ -13,6 +13,24 @@
 
 	class ImagesController extends Controller
 	{
+		public function behaviors() {
+			return [
+				'access' => [
+					'class' => AccessControl::className(),
+					'only' => ['view', 'success', 'upload', 'edit', 'remove'],
+					'rules' => [
+						[
+							'allow' => false,
+							'roles' => ['?'],
+						],
+						[
+							'allow' => true,
+							'roles' => ['@']
+						]
+					]
+				]
+			];
+		}
 		public function actionView($id) {
 			$photo = Photos::findOneById($id);
 			return $this->render('view', ['photo' => $photo]);
