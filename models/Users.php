@@ -21,5 +21,8 @@
 			return Users::find()
 					->where(['not in', 'id', $followers]);
 		}
+		public function findUserByName($name) {
+			return Users::find()->select(['id', 'username'])->where(['username' => $name]);
+		}
 	}
 ?>

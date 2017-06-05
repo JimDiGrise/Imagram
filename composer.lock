@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5543d72d6b41504971f88a2426fda2af",
+    "content-hash": "1513d1ccdbe52598d39cdb9ffdaffa45",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -371,6 +371,49 @@
                 "html"
             ],
             "time": "2017-03-13T06:30:53+00:00"
+        },
+        {
+            "name": "richardfan1126/yii2-js-register",
+            "version": "v0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/richardfan1126/yii2-js-register.git",
+                "reference": "e6a49b1523942c0a861bfa9f5cf7371e3bfd94f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/richardfan1126/yii2-js-register/zipball/e6a49b1523942c0a861bfa9f5cf7371e3bfd94f9",
+                "reference": "e6a49b1523942c0a861bfa9f5cf7371e3bfd94f9",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "richardfan\\widget\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Richard Fan",
+                    "email": "richardfan1126@gmail.com",
+                    "homepage": "https://fancy-digital.com"
+                }
+            ],
+            "description": "Yii2 widget to register JS into view",
+            "keywords": [
+                "extension",
+                "javascript",
+                "widget",
+                "yii2"
+            ],
+            "time": "2016-06-29T17:28:49+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

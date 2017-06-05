@@ -9,6 +9,10 @@
 		{
 			return 'photos';
 		}
+		public function findFollowersPhotos($followers) 
+		{
+			return Photos::find()->where(['userId' => $followers]);
+		}
 		public function findOneById($id) 
 		{
 			return Photos::findOne($id);
@@ -40,6 +44,28 @@
 			$currentPhoto = Photos::findOneById($id);
 			$currentPhoto->delete();
 		}
+		public function findPhotosByUsers($users) {
+			$photos = array();
+			foreach ($users as $user) {
+				array_push($photos,
+							[ 
+								$user['id'], 
+								$user['username'], 
+								Yii::$app->db
+										->createCommand(
+												"select 
+													photos.id, 
+													photos.description, 
+													photos.filename, 
+													photos.create_at
+												from user
+												JOIN photos ON user.id = photos.userId
+												where photos.userid =" .$user['id'] )
+										->queryAll()
+							]);
+				}
+			return $photos;
+		}		
 	}
 
 ?>
