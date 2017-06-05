@@ -14,7 +14,12 @@
 			$users = Users::findUsersByFollowers($followers);
 			return $this->render('index', ['followers' => $users]);
 		}
-		
+		public function actionSearch() 
+		{
+			$followers = Followers::findAllFollowersById(Yii::$app->user->identity->id);
+			$users= Users::findFollowers($followers);
+			return $this->render('search', ['users' => $users->all()]);
+		}
 	}
 
 	

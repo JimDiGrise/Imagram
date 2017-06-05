@@ -11,8 +11,15 @@
 		}
 		public function findUsersByFollowers($followers) 
 		{
-			return Users::find()->select(['id','username'])->where(['id' => $followers])->all();
+			return Users::find()
+					->select(['id','username'])
+					->where(['id' => $followers])
+					->all();
 		}
-		
+		public function findFollowers($followers) 
+		{
+			return Users::find()
+					->where(['not in', 'id', $followers]);
+		}
 	}
 ?>
