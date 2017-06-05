@@ -4,7 +4,7 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
-$this->title = 'Imagram';
+$this->title = 'Flckr';
 ?>
 <div class="site-index">
     <div class="row centered">
@@ -16,4 +16,3 @@ $this->title = 'Imagram';
         
     </div> 
 </div>
-<?php

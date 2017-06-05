@@ -15,6 +15,15 @@
             	->where(['userid' => $userId])
             	->all();
 		}
+		public function addPhoto($title, $description, $filename, $userId) 
+		{
+			$photos = new Photos();
+			$photos->title = $title;
+			$photos->description = $description;
+			$photos->filename = $filename;
+			$photos->userId = $userId;
+			$photos->save();	
+		}
 	}
 
 ?>
