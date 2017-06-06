@@ -11,38 +11,61 @@
 		}
 		public function findFollowersPhotos($followers) 
 		{
+			if(empty($followers)) 
+				return false;
+
 			return Photos::find()->where(['userId' => $followers]);
 		}
 		public function findOneById($id) 
 		{
+			if(empty($id)) 
+				return false;
+
 			return Photos::findOne($id);
 		}
 		public function findbyUserId($userId) 
 		{
+			if(empty($userId)) 
+				return false;
+
 			return Photos::find()
             	->where(['userid' => $userId])
             	->all();
 		}
 		public function addPhoto($title, $description, $filename, $userId) 
 		{
+			if(	empty($title) 
+				|| empty($description)
+				|| empty($filename) 
+				|| empty($userId))
+				return false;
+
 			$photos = new Photos();
 			$photos->title = $title;
 			$photos->description = $description;
 			$photos->filename = $filename;
 			$photos->userId = $userId;
-			$photos->save();	
+			return $photos->save();	
 		}
 		public function updatePhoto($id, $title, $description) 
 		{
+			if(	empty($id) 
+				|| empty($title)
+				|| empty($description))
+				return false;
+
 			$currentPhoto = Photos::findOneById($id);
 			$currentPhoto->title = $title;
 			$currentPhoto->description = $description;
-			$currentPhoto->update();
+			return $currentPhoto->update();
 		}
 		public function deletePhoto($id) 
 		{
+			if(empty($id)) 
+				return false;
+
 			$currentPhoto = Photos::findOneById($id);
-			$currentPhoto->delete();
+			return $currentPhoto->delete();
 		}
 		public function findPhotosByUsers($users) {
 			$photos = array();
