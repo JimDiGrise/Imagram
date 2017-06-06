@@ -24,7 +24,6 @@
 		public function testUpdateEmptyPhoto() 
 		{
 			$this->assertFalse(Photos::updatePhoto(null, 0, ''));
-
 		}
 		public function testDeleteEmptyIdPhoto() 
 		{

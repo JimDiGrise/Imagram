@@ -68,6 +68,9 @@
 			return $currentPhoto->delete();
 		}
 		public function findPhotosByUsers($users) {
+			if(empty($users)) 
+				return false;
+			
 			$photos = array();
 			foreach ($users as $user) {
 				array_push($photos,
