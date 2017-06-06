@@ -5,10 +5,15 @@
 	use app\models\Photos;
 	use app\models\Followers;
 	use app\models\Users;
+
+
 	class Followers extends ActiveRecord 
 	{
 		public function findAllFollowersById($id) 
 		{
+			if($id == 0 ) {
+				return false;
+			}
 			$followers = Followers::find()
 				->select(['followerId'])
 				->where(['userId' => $id]); 
@@ -17,20 +22,24 @@
 		}
 		public function addFollower($userId, $followerId) 
 		{
+			if( $followerId == 0 || $userId == 0 ) {
+				return false;
+			} 
 			$followers = new Followers();
 			$followers->UserId = $userId;
 			$followers->FollowerId = $followerId;
-			$followers->save();
+			return $followers->save();
+			
 		}
-		public function deleteFollower($id) 
+		public function deleteFollower($userId, $followerId) 
 		{
-			Followers::deleteAll(['followerId' => $id]);
+			if($userId == 0 || $followerId == 0) {
+				return false;
+			}
+			return Followers::deleteAll(['userId' => $userId, 'followerId' => $followerId]);
+			 
 		}
-		public function actionRemove($id) 
-		{
-			Followers::deleteFollower($id);
-			return $this->redirect('/followers/index');
-		}
+		
 
 	}
 	?>

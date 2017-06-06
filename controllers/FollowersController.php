@@ -35,7 +35,7 @@
 		}
 		public function actionRemove($id) 
 		{
-			Followers::deleteFollower($id);
+			Followers::deleteFollower(Yii::$app->user->identity->id, $id);
 			return $this->redirect('/followers/index');
 		}
 	}
