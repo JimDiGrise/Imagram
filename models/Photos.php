@@ -11,12 +11,10 @@
 		}
 		public function findFollowersPhotos($followers) 
 		{
-<<<<<<< HEAD
+
 			if(empty($followers)) 
 				return false;
 
-=======
->>>>>>> 4a1a3d987b3e0c521452b769c0c11690c3b16c01
 			return Photos::find()->where(['userId' => $followers]);
 		}
 		public function findOneById($id) 
@@ -71,12 +69,10 @@
 			return $currentPhoto->delete();
 		}
 		public function findPhotosByUsers($users) {
-<<<<<<< HEAD
+
 			if(empty($users)) 
 				return false;
 			
-=======
->>>>>>> 4a1a3d987b3e0c521452b769c0c11690c3b16c01
 			$photos = array();
 			foreach ($users as $user) {
 				array_push($photos,
